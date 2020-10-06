@@ -2,3 +2,13 @@ p {
   color: red;
   font-size: 25px;
 }
+button {
+  background-color: #46cf2b;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}

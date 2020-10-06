@@ -1,3 +1,49 @@
-<p>
+<p appAddText>
   new-cmp works!
 </p>
+<p>
+  {{newcomponent | uppercase}}
+</p>
+<div> Months : 
+  <select (change) = "changeMonths($event)"> 
+    <option *ngFor = "let i of months">{{i}}</option> 
+  </select> 
+</div> 
+<span *ngIf="showAge, then condition1 else condition2">Age = 18</span>
+<ng-template #condition1>Show Age</ng-template>
+<ng-template #condition2>Hide Age</ng-template>
+
+<button (click) = "myClickFunction($event)">Click Me</button>
+
+<div>{{6589.23 | currency:"USD"}}</div>
+<div>{{6589.23 | currency:"USD":true}}</div>
+<div>{{todayDate | date:'dd/MM/yyyy'}}</div>
+<div>{{ 454.78787814 | number: '3.4-4' }}</div>
+<div>{{ jsonData | json }}</div>
+<div>{{00.54565 | percent}}</div>
+<div>{{months | slice:2:6}}</div>
+<div>{{25 | sqrt}}</div>
+<div>{{todayDate}}</div>
+<div>{{property}}</div>
+
+<ul>
+  <li *ngFor="let item of persondata">
+    {{ item.name }}
+  </li>
+</ul>
+
+<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)"> 
+  <input type = "text" name = "emailid" placeholder = "emailid" ngModel> 
+  <br/> 
+  <input type = "password" name = "passwd" placeholder = "passwd" ngModel> 
+  <br/> 
+  <input type = "submit" value = "submit"> 
+</form>
+
+<form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)"> 
+  <input type = "text" name = "emailid" placeholder = "emailid" formControlName = "emailid"> 
+  <br/> 
+  <input type = "password" name = "passwd" placeholder = "passwd" formControlName = "passwd"> 
+  <br/> 
+  <input type = "submit" value = "submit" [disabled] = "!formdata.valid"> 
+</form>
